@@ -13,7 +13,7 @@ _M.textadept.run.error_detail.go = {
 }
 
 -- Sets default buffer properties for Go files.
-events.connect(events.LANGUAGE_MODULE_LOADED, function(lang)
+events.connect(events.LEXER_LOADED, function(lang)
   if lang == 'go' then
     buffer.use_tabs = true
     buffer.tab_width = 4
