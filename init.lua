@@ -4,14 +4,6 @@
 
 local M = {}
 
--- Run and compile commands.
-_M.textadept.run.compile_command.go = 'go build %(filename)'
-_M.textadept.run.run_command.go = 'go run %(filename)'
-_M.textadept.run.error_detail.go = {
-  pattern = '^(.-):(%d+): (.+)$',
-  filename = 1, line = 2, message = 3
-}
-
 -- Sets default buffer properties for Go files.
 events.connect(events.LEXER_LOADED, function(lang)
   if lang == 'go' then
