@@ -4,6 +4,9 @@
 
 local M = {}
 
+-- Default format command.
+M.format_command = "gofmt"
+
 -- Sets default buffer properties for Go files.
 events.connect(events.LEXER_LOADED, function(lang)
   if lang == 'go' then
@@ -17,7 +20,7 @@ end)
 events.connect(events.FILE_BEFORE_SAVE, function()
   if buffer:get_lexer() ~= 'go' then return end
   local text = buffer:get_text()
-  local p = io.popen([[gofmt 2>&1 << "EOL"
+  local p = io.popen(M.format_command..[[ 2>&1 << "EOL"
 ]]..text..[[
 EOL
 ]])
