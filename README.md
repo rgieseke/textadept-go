@@ -12,6 +12,15 @@
 - Run source through `gofmt` for automatic formatting before saving
 - Highlight syntax errors when saving the file
 
+#### Options
+
+You can configure the go format command in your `.textadept/init.lua`, e.g.:
+
+```lua
+_M["go"] = require("go")
+_M["go"].format_command = "goimports"
+```
+
 #### License
 
 MIT
